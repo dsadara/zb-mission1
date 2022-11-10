@@ -44,20 +44,20 @@ public class ApiExplorer {
         return sb.toString();
     }
 
-    public static void putJsonStringToClass(String res, ArrayList<WifiInfo> results) {
+    public static void putJsonStringToClass(String res, ArrayList<Wifiinfo> results) {
         JsonObject tbPublicWifiInfo = JsonParser.parseString(res).getAsJsonObject().get("TbPublicWifiInfo").getAsJsonObject();
         JsonArray rows = tbPublicWifiInfo.get("row").getAsJsonArray();
 
         for (int i = 0; i < rows.size(); i++) {
             JsonElement row = rows.get(i);
             Gson gson = new Gson();
-            WifiInfo wifiInfo = gson.fromJson(row, WifiInfo.class);
+            Wifiinfo wifiInfo = gson.fromJson(row, Wifiinfo.class);
             results.add(wifiInfo);
         }
 
     }
-    public static ArrayList<WifiInfo> collectWifiInfos() throws IOException {
-        ArrayList<WifiInfo> results = new ArrayList<>();
+    public static ArrayList<Wifiinfo> collectWifiInfos() throws IOException {
+        ArrayList<Wifiinfo> results = new ArrayList<>();
 
         // 와이파이 개수 가져오기
         String jsonStr = apiCall(1, 1);
@@ -68,7 +68,7 @@ public class ApiExplorer {
         int iterate1000Num = wifiNum / 1000;
         int lastIterateNum = wifiNum % 1000;
 
-        // 1000개의 데이터씩 가져오기
+        // 1000개씩 데이터 가져오기
         int startIndex;
         int endIndex;
         for (int i = 0; i < iterate1000Num; i++) {
@@ -109,10 +109,14 @@ public class ApiExplorer {
 //                WifiInfo wifiInfo = gson.fromJson(row, WifiInfo.class);
 //                System.out.println(wifiInfo);
 //            }
-            ArrayList<WifiInfo> results = collectWifiInfos();
-            for (int i = 0; i < results.size(); i++) {
-                System.out.println(i + 1 + " : " + results.get(i));
-            }
+            ArrayList<Wifiinfo> results = collectWifiInfos();
+            WifiinfoServiceMariaDB.insertAll(results);
+//            for (int i = 0; i < results.size(); i++) {
+//                WifiinfoServiceMariaDB.insert(results.get(i));
+//            }
+//            for (int i = 0; i < results.size(); i++) {
+//                System.out.println(i + 1 + " : " + results.get(i));
+//            }
 
         } catch (IOException e) {
             throw new RuntimeException(e);

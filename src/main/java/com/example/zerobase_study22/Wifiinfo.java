@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class WifiInfo {
+public class Wifiinfo {
     @SerializedName("X_SWIFI_MGR_NO")
     private String mgrNo;  // 관리번호
 
