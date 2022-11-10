@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.net.URLEncoder.*;
 
@@ -88,8 +89,8 @@ public class ApiExplorer {
     }
 
     public static void main(String[] args) {
-        String result;
-        try {
+//        String result;
+//        try {
 //            result = apiCall(5);
 //            System.out.println(result);
 //
@@ -109,17 +110,12 @@ public class ApiExplorer {
 //                WifiInfo wifiInfo = gson.fromJson(row, WifiInfo.class);
 //                System.out.println(wifiInfo);
 //            }
-            ArrayList<Wifiinfo> results = collectWifiInfos();
-            WifiinfoServiceMariaDB.insertAll(results);
-//            for (int i = 0; i < results.size(); i++) {
-//                WifiinfoServiceMariaDB.insert(results.get(i));
-//            }
-//            for (int i = 0; i < results.size(); i++) {
-//                System.out.println(i + 1 + " : " + results.get(i));
-//            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//            ArrayList<Wifiinfo> results = collectWifiInfos();
+//            WifiinfoServiceMariaDB.insertAll(results);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+        List<Wifiinfo> results = WifiinfoServiceMariaDB.list();
     }
+
 }
