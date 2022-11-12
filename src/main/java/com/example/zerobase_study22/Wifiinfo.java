@@ -59,4 +59,8 @@ public class Wifiinfo {
     @SerializedName("WORK_DTTM")
     private String workDttm;    // 작업일자
 
+    public String getRoundDist() {
+        return String.format("%.2f", dist);
+    }
+
 }

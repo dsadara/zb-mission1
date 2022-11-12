@@ -46,9 +46,24 @@
                 }
         %>
     </table>
-    <script>
 
-    </script>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-color: grey;
+        border: 1px solid dimgrey;
+    }
 
+    th {
+        background-color: mediumseagreen;
+        color: white;
+        border: 1px solid dimgrey;
+    }
+
+    td {
+        border: 1px solid dimgrey;
+    }
+</style>
 </body>
 </html>

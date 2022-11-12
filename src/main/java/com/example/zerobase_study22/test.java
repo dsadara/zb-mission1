@@ -30,6 +30,6 @@ public class test {
 //        }
 //        List<Wifiinfo> results = WifiinfoServiceMariaDB.list();
 
-
+//        WifiinfoServiceMariaDB.deleteWrongLat();
     }
 }

@@ -14,16 +14,14 @@
     <a href="index.jsp">홈</a>
     <a href="history.jsp">위치 히스토리 목록</a>
     <a href="loadwifi.jsp">Open API 와이파이 정보 가져오기</a>
-    <table>
-        <tr>
-            <form method="get" action="index.jsp" id="form1">
-                <td><input type="text" name="LAT" id="lat" size="10"></td>
-                <td><input type="text" name="LNT" id="lnt" size="10"></td>
-            </form>
-            <td><button onclick="getGPS()">내 위치 가져오기</button></td>
-            <td><input type="submit" value="근처 WIFI 정보 보기" form="form1"></td>
-        </tr>
-    </table>
+    <p>
+        <form method="get" action="index.jsp" id="form1">
+            LAT:<input type="text" name="LAT" id="lat" size="10">,
+            LNT:<input type="text" name="LNT" id="lnt" size="10">
+        </form>
+        <button onclick="getGPS()">내 위치 가져오기</button>
+        <input type="submit" value="근처 WIFI 정보 보기" form="form1">
+    </p>
     <script type="text/javascript">
         function getGPS() {
             navigator.geolocation.getCurrentPosition(function(pos) {
@@ -61,7 +59,8 @@
             List<Wifiinfo> results = null;
 
             if (lat != null && lnt != null) {
-                results = WifiinfoServiceMariaDB.list();
+                WifiinfoServiceMariaDB.deleteWrongLat();
+                results = WifiinfoServiceMariaDB.listNear(lat, lnt);
                 // history table에 저장
                 historyServiceMariaDB.Insert(new history(lat, lnt));
             }
@@ -71,7 +70,7 @@
         %>
             <tr>
                 <td><%=result.getMgrNo()%></td>
-                <td><%=result.getDist()%></td>
+                <td><%=String.format("%.4fKM", result.getDist() * 0.001)%></td>
                 <td><%=result.getWrdofc()%></td>
                 <td><%=result.getMainNm()%></td>
                 <td><%=result.getAdres1()%></td>
@@ -93,5 +92,27 @@
             }
         %>
     </table>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-color: grey;
+        border: 1px solid dimgrey;
+    }
+
+    th {
+        background-color: mediumseagreen;
+        color: white;
+        border: 1px solid dimgrey;
+    }
+
+    td {
+        border: 1px solid dimgrey;
+    }
+
+    form {
+        display: inline;
+    }
+</style>
 </body>
 </html>
