@@ -139,6 +139,12 @@ public class WifinfoServiceSQLite {
         String url = "jdbc:sqlite:C:\\dev\\PublicWIfi.db";
 
 
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         // finally 블록에서 사용 가능하게 바깥에서 변수 선언
         Connection connection = null;
         PreparedStatement preparedStatement = null; // 보안의 이유로 preparedStatement 사용

@@ -1,8 +1,5 @@
-<%@ page import="com.example.zerobase_study22.Wifiinfo" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.zerobase_study22.WifiinfoServiceMariaDB" %>
-<%@ page import="com.example.zerobase_study22.historyServiceMariaDB" %>
-<%@ page import="com.example.zerobase_study22.history" %>
+<%@ page import="com.example.zerobase_study22.*" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +56,7 @@
             List<Wifiinfo> results = null;
 
             if (lat != null && lnt != null) {
-                results = WifiinfoServiceMariaDB.listNear(lat, lnt);
+                results = WifinfoServiceSQLite.listNear(lat, lnt);
                 // history table에 저장
                 historyServiceMariaDB.Insert(new history(lat, lnt));
             }
@@ -69,7 +66,7 @@
         %>
             <tr>
                 <td><%=result.getMgrNo()%></td>
-                <td><%=String.format("%.4fKM", result.getDist() * 0.001)%></td>
+                <td><%=String.format("%.4fKM", result.getDist())%></td>
                 <td><%=result.getWrdofc()%></td>
                 <td><%=result.getMainNm()%></td>
                 <td><%=result.getAdres1()%></td>

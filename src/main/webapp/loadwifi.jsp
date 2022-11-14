@@ -1,7 +1,8 @@
 <%@ page import="com.example.zerobase_study22.Wifiinfo" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.zerobase_study22.WifiinfoServiceMariaDB" %>
-<%@ page import="static com.example.zerobase_study22.ApiExplorer.collectWifiInfos" %><%--
+<%@ page import="static com.example.zerobase_study22.ApiExplorer.collectWifiInfos" %>
+<%@ page import="com.example.zerobase_study22.WifinfoServiceSQLite" %><%--
   Created by IntelliJ IDEA.
   User: lim97
   Date: 2022-11-10
@@ -15,10 +16,9 @@
 </head>
 <body>
     <%
-        WifiinfoServiceMariaDB.clearTable();
+        WifinfoServiceSQLite.clearTable();
         ArrayList<Wifiinfo> results = collectWifiInfos();
-        WifiinfoServiceMariaDB.insertAll(results);
-        WifiinfoServiceMariaDB.deleteWrongLat();
+        WifinfoServiceSQLite.insertAll(results);
     %>
     <h1><% out.write(String.valueOf(results.size())); %>개의 WIFI 정보를 정상적으로 저장하였습니다.</h1>
     <a href="index.jsp">홈 으로 가기</a>
