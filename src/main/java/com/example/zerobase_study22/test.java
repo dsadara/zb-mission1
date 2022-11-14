@@ -32,14 +32,22 @@ public class test {
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }
+
+        WifinfoServiceSQLite.clearTable();
+
         List<Wifiinfo> results = null;
         try {
             results = ApiExplorer.collectWifiInfos();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         WifinfoServiceSQLite.insertAll(results);
 
+        List<Wifiinfo> results2 = WifinfoServiceSQLite.listNear(Double.toString(37.5455744), Double.toString(126.877696));
+        for (Wifiinfo wifiinfo : results2) {
+            System.out.println(wifiinfo);
+        }
     }
 }
