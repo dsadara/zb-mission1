@@ -1,5 +1,9 @@
 package com.example.zerobase_study22;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class test {
     public static void main(String[] args) {
         //        String result;
@@ -28,8 +32,14 @@ public class test {
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }
-//        List<Wifiinfo> results = WifiinfoServiceMariaDB.list();
+        List<Wifiinfo> results = null;
+        try {
+            results = ApiExplorer.collectWifiInfos();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-//        WifiinfoServiceMariaDB.deleteWrongLat();
+        WifinfoServiceSQLite.insertAll(results);
+
     }
 }

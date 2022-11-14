@@ -59,7 +59,6 @@
             List<Wifiinfo> results = null;
 
             if (lat != null && lnt != null) {
-                WifiinfoServiceMariaDB.deleteWrongLat();
                 results = WifiinfoServiceMariaDB.listNear(lat, lnt);
                 // history table에 저장
                 historyServiceMariaDB.Insert(new history(lat, lnt));
