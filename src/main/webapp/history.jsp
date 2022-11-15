@@ -1,6 +1,7 @@
 <%@ page import="com.example.zerobase_study22.history" %>
-<%@ page import="com.example.zerobase_study22.historyServiceMariaDB" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="com.example.zerobase_study22.historyServiceSQLite" %>
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: lim97
   Date: 2022-11-10
@@ -27,7 +28,7 @@
             <th>비고</th>
         </tr>
         <%
-            List<history> results = historyServiceMariaDB.list();
+            List<history> results = historyServiceSQLite.list();
             for (history result : results) {
         %>
         <tr>

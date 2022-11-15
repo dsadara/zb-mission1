@@ -45,9 +45,21 @@ public class test {
 //
 //        WifinfoServiceSQLite.insertAll(results);
 
-        List<Wifiinfo> results2 = WifinfoServiceSQLite.listNear(Double.toString(37.5455744), Double.toString(126.877696));
-        for (Wifiinfo wifiinfo : results2) {
-            System.out.println(wifiinfo);
+//        List<Wifiinfo> results2 = WifinfoServiceSQLite.listNear(Double.toString(37.5455744), Double.toString(126.877696));
+//        for (Wifiinfo wifiinfo : results2) {
+//            System.out.println(wifiinfo);
+//        }
+        historyServiceSQLite.Insert(new history(Double.toString(37.5455744), Double.toString(126.877696)));
+        historyServiceSQLite.Insert(new history(Double.toString(37.5455744), Double.toString(126.877696)));
+
+        List<history> his = historyServiceSQLite.list();
+        for (history hi : his) {
+            System.out.println(hi);
         }
+
+        history his1 = new history();
+        his1.setId(2);
+        historyServiceSQLite.withdraw(his1);
+
     }
 }

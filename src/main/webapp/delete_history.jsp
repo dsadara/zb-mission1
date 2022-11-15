@@ -1,4 +1,4 @@
-<%@ page import="com.example.zerobase_study22.historyServiceMariaDB" %>
+<%@ page import="com.example.zerobase_study22.historyServiceSQLite" %>
 <%@ page import="com.example.zerobase_study22.history" %><%--
   Created by IntelliJ IDEA.
   User: lim97
@@ -16,7 +16,7 @@
         String id = request.getParameter("id");
         history his = new history();
         his.setId(Integer.valueOf(id));
-        historyServiceMariaDB.withdraw(his);
+        historyServiceSQLite.withdraw(his);
         response.sendRedirect("./history.jsp");
     %>
 </body>

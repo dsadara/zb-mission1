@@ -58,7 +58,7 @@
             if (lat != null && lnt != null) {
                 results = WifinfoServiceSQLite.listNear(lat, lnt);
                 // history table에 저장
-                historyServiceMariaDB.Insert(new history(lat, lnt));
+                historyServiceSQLite.Insert(new history(lat, lnt));
             }
 
             if (results != null) {
