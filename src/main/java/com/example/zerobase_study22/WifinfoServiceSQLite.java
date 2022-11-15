@@ -11,6 +11,11 @@ public class WifinfoServiceSQLite {
 
         String url = "jdbc:sqlite:C:\\dev\\PublicWIfi.db";
 
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -73,6 +78,12 @@ public class WifinfoServiceSQLite {
         int result = -1;
 
         String url = "jdbc:sqlite:C:\\dev\\PublicWIfi.db";
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
