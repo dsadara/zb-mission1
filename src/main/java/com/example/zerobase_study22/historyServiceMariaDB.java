@@ -5,11 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class historyServiceMariaDB {
-
-    public static void main(String[] args) {
-        Insert(new history("11.11", "12.11"));
-    }
-
     public static int Insert(history history) {
         int result = -1;
 

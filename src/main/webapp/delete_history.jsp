@@ -1,5 +1,6 @@
 <%@ page import="com.example.zerobase_study22.historyServiceSQLite" %>
-<%@ page import="com.example.zerobase_study22.history" %><%--
+<%@ page import="com.example.zerobase_study22.history" %>
+<%--
   Created by IntelliJ IDEA.
   User: lim97
   Date: 2022-11-11
@@ -9,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>와이파이 정보 구하기</title>
 </head>
 <body>
     <%

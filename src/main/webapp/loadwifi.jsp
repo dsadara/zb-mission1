@@ -1,8 +1,8 @@
 <%@ page import="com.example.zerobase_study22.Wifiinfo" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.zerobase_study22.WifiinfoServiceMariaDB" %>
 <%@ page import="static com.example.zerobase_study22.ApiExplorer.collectWifiInfos" %>
-<%@ page import="com.example.zerobase_study22.WifinfoServiceSQLite" %><%--
+<%@ page import="com.example.zerobase_study22.WifinfoServiceSQLite" %>
+<%--
   Created by IntelliJ IDEA.
   User: lim97
   Date: 2022-11-10
@@ -12,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>와이파이 정보 구하기</title>
 </head>
 <body>
     <%

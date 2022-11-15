@@ -5,6 +5,28 @@
 <html>
 <head>
     <title>와이파이 정보 구하기</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-color: grey;
+            border: 1px solid dimgrey;
+        }
+
+        th {
+            background-color: mediumseagreen;
+            color: white;
+            border: 1px solid dimgrey;
+        }
+
+        td {
+            border: 1px solid dimgrey;
+        }
+
+        form {
+            display: inline;
+        }
+    </style>
 </head>
 <body>
     <h1>와이파이 정보 구하기</h1>
@@ -88,27 +110,5 @@
             }
         %>
     </table>
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border-color: grey;
-        border: 1px solid dimgrey;
-    }
-
-    th {
-        background-color: mediumseagreen;
-        color: white;
-        border: 1px solid dimgrey;
-    }
-
-    td {
-        border: 1px solid dimgrey;
-    }
-
-    form {
-        display: inline;
-    }
-</style>
 </body>
 </html>

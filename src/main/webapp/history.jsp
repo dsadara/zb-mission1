@@ -11,14 +11,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>와이파이 정보 구하기</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-color: grey;
+            border: 1px solid dimgrey;
+        }
+
+        th {
+            background-color: mediumseagreen;
+            color: white;
+            border: 1px solid dimgrey;
+        }
+
+        td {
+            border: 1px solid dimgrey;
+        }
+    </style>
 </head>
 <body>
     <h1>위치 히스토리 목록</h1>
     <a href="index.jsp">홈</a>
     <a href="history.jsp">위치 히스토리 목록</a>
     <a href="loadwifi.jsp">Open API 와이파이 정보 가져오기</a>
-
     <table>
         <tr>
             <th>ID</th>
@@ -48,23 +65,5 @@
         %>
     </table>
 
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border-color: grey;
-        border: 1px solid dimgrey;
-    }
-
-    th {
-        background-color: mediumseagreen;
-        color: white;
-        border: 1px solid dimgrey;
-    }
-
-    td {
-        border: 1px solid dimgrey;
-    }
-</style>
 </body>
 </html>

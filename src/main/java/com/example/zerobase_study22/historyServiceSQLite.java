@@ -66,23 +66,7 @@ public class historyServiceSQLite {
     }
 
     public static List<history> list() {
-
         List<history> historyList = new ArrayList<>();
-        // 5개
-        //1. ip(domain)
-        //2. port
-        //3. 계정
-        //4. 패스워드
-        //5. 인스턴스
-
-
-        // 1. 드라이버 로드
-        // 2. 커넥션 객체 생성
-        // 3. 스테이트먼트 객체 생성
-        // 4. 쿼리 실행
-        // 5. 결과 수행
-        // 6. 객체 연결 해제(close)
-
         String url = "jdbc:sqlite:C:\\dev\\PublicWIfi.db";
 
         // 1. 드라이버 로드
@@ -106,7 +90,6 @@ public class historyServiceSQLite {
             String sql = " select * " +
                     " from History ";
 
-
             preparedStatement = connection.prepareStatement(sql);
 
             rs = preparedStatement.executeQuery();
@@ -127,8 +110,6 @@ public class historyServiceSQLite {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            // close 부분이 실행되지 않을 수도 있음
-
             // 6. 객체 연결 해제(close)
             try {
                 if (rs != null && !rs.isClosed()) {
