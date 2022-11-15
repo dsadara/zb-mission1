@@ -32,8 +32,8 @@
     </script>
     <table>
         <tr>
-            <th>관리번호</th>
             <th>거리(Km)</th>
+            <th>관리번호</th>
             <th>자치구</th>
             <th>와이파이명</th>
             <th>도로명주소</th>
@@ -65,8 +65,8 @@
                 for (Wifiinfo result : results) {
         %>
             <tr>
+                <td><%=String.format("%.4fKm", result.getDist())%></td>
                 <td><%=result.getMgrNo()%></td>
-                <td><%=String.format("%.4fKM", result.getDist())%></td>
                 <td><%=result.getWrdofc()%></td>
                 <td><%=result.getMainNm()%></td>
                 <td><%=result.getAdres1()%></td>

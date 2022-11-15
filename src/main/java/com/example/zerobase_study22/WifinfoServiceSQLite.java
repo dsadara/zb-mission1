@@ -163,7 +163,8 @@ public class WifinfoServiceSQLite {
                     "+ sin( radians(" + myLat +") ) * sin( radians( LAT ) ) ) ) AS dist2 " +
                     " FROM Wifitable " +
                     " WHERE dist2 < 1 " +
-                    " ORDER BY dist2 ";
+                    " ORDER BY dist2 " +
+                    " LIMIT 20";
 
             preparedStatement = connection.prepareStatement(sql);
 
