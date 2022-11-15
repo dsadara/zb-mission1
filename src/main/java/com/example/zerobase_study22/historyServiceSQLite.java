@@ -88,7 +88,8 @@ public class historyServiceSQLite {
             // 3. 스테이트먼트 객체 생성
             // 4. 쿼리 실행
             String sql = " select * " +
-                    " from History ";
+                    " from History " +
+                    " order by ID desc";
 
             preparedStatement = connection.prepareStatement(sql);
 
